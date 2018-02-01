@@ -8,16 +8,13 @@
 
 namespace app\ctrl;
 
-class indexCtrl extends \core\start
+use core\lib\Model;
+
+class IndexCtrl extends \core\Start
 {
     public function index()
     {
-        p('it is index');
-//        $model = new \core\lib\model();
-//        $sql = "SELECT * FROM test1";
-//        $datas = $model->query($sql);
-//        p($datas->fetchAll());
-
+        $model = new Model();
         $data = 'Hello World';
         $this->assign('data', $data);
         $this->display('index.html');

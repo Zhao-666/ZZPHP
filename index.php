@@ -25,8 +25,8 @@ if (DEBUG) {
 
 
 include CORE.'/common/function.php';
-include CORE.'/start.php';
+include CORE.'/Start.php';
 
 spl_autoload_register('\core\start::load');
 
-\core\start::run();
+\core\Start::run();

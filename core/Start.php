@@ -8,14 +8,16 @@
 
 namespace core;
 
-class start
+class Start
 {
     public static $classMap = [];
     public $assign;
 
     public static function run()
     {
-        $route = new \core\lib\route();
+        \core\lib\Log::init();
+        \core\lib\Log::log($_SERVER, 'server');
+        $route = new \core\lib\Route();
         $ctrlClass = $route->ctrl;
         $action = $route->action;
         $ctrlFile = APP . '/ctrl/' . $ctrlClass . 'Ctrl.php';//路径
@@ -23,6 +25,7 @@ class start
         if (is_file($ctrlFile)) {
             $ctrl = new $controller();
             $ctrl->$action();
+            \core\lib\Log::log('ctrl:' . $ctrlClass . '   action:' . $action);
         } else {
             throw new \Exception('找不到控制器 ' . $ctrlClass);
         }
@@ -57,7 +60,7 @@ class start
         if (is_file($file)) {
             extract($this->assign);
             include $file;
-        }else{
+        } else {
 
         }
     }

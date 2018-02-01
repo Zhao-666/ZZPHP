@@ -8,7 +8,7 @@
 
 namespace core\lib;
 
-class route
+class Route
 {
     public $ctrl;
     public $action;
@@ -16,7 +16,7 @@ class route
     public function __construct()
     {
         // xxx.com/index/index
-        // xxx.com/indexCtrl.php/index/index
+        // xxx.com/IndexCtrl.php/index/index
         /**
          * 1、隐藏index.php
          * 2、获取URL参数部分
@@ -35,7 +35,7 @@ class route
                 $this->action = $patharr[1];
                 unset($patharr[1]);
             } else {
-                $this->action = 'index';
+                $this->action = \core\lib\Conf::get('ACTION', 'route');
             }
 
             //url多余部分转换成GET参数
@@ -49,8 +49,8 @@ class route
                 }
             }
         } else {
-            $this->ctrl = 'index';
-            $this->action = 'index';
+            $this->ctrl = \core\lib\Conf::get('CTRL', 'route');
+            $this->action = \core\lib\Conf::get('ACTION', 'route');
         }
     }
 }
