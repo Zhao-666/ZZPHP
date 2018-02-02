@@ -19,10 +19,4 @@ class IndexCtrl extends \core\Start
         $this->assign('data',$data);
         $this->display('index.html');
     }
-
-    public function test(){
-        $data = 'test';
-        $this->assign('data',$data);
-        $this->display('test.html');
-    }
 }
