@@ -9,15 +9,14 @@
 namespace core\lib;
 
 
-class Model extends \PDO
+
+use Medoo\Medoo;
+
+class Model extends Medoo
 {
     public function __construct()
     {
         $database = Conf::all('database');
-        try {
-            parent::__construct($database['DSN'], $database['USERNAME'], $database['PASSWD']);
-        } catch (\PDOException $e) {
-            p($e->getMessage());
-        }
+        parent::__construct($database);
     }
 }
