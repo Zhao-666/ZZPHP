@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: ZJH
+ * User: Next
  * Date: 2018/2/11
  * Time: 15:30
  */
@@ -20,15 +20,14 @@ class Route
          * 2、获取URL参数部分
          * 3、返回对应控制器和方法
          */
-
         if (isset($_SERVER['REQUEST_URI']) && $_SERVER['REQUEST_URI'] !== '/') {
             $path = $_SERVER['REQUEST_URI'];
             $pathArr = explode('?', $path);//将ctrl/action和param分开
             $this->setRoute($pathArr[0]);
             isset($pathArr[1]) && $this->setParam($pathArr[1]);
         } else {
-            $this->ctrl = 'Index';
-            $this->action = 'index';
+            $this->ctrl = Conf::get('CTRL', 'route');
+            $this->action = Conf::get('ACTION', 'route');
         }
     }
 
@@ -41,7 +40,7 @@ class Route
         if (isset($routeArr[1])) {
             $this->action = $routeArr[1];
         } else {
-            $this->action = 'index';
+            $this->action = Conf::get('ACTION', 'route');
         }
     }
 
