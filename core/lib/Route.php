@@ -27,21 +27,23 @@ class Route
             $this->setRoute($pathArr[0]);
             isset($pathArr[1]) && $this->setParam($pathArr[1]);
         } else {
-            $this->ctrl = 'Index';
-            $this->action = 'index';
+            $this->ctrl = config('route.CONTROLLER');
+            $this->action = config('route.ACTION');
         }
     }
 
     private function setRoute($route)
     {
         $routeArr = explode('/', trim($route, '/'));
-        if (isset($routeArr[0])) {
+        if (!empty($routeArr[0])) {
             $this->ctrl = $routeArr[0];
+        } else {
+            $this->ctrl = config('route.CONTROLLER');
         }
-        if (isset($routeArr[1])) {
+        if (!empty($routeArr[1])) {
             $this->action = $routeArr[1];
         } else {
-            $this->action = 'index';
+            $this->action = config('route.ACTION');
         }
     }
 
