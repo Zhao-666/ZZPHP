@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: ZJH
+ * User: Next
  * Date: 2018/2/11
  * Time: 15:30
  */
@@ -20,7 +20,6 @@ class Route
          * 2、获取URL参数部分
          * 3、返回对应控制器和方法
          */
-
         if (isset($_SERVER['REQUEST_URI']) && $_SERVER['REQUEST_URI'] !== '/') {
             $path = $_SERVER['REQUEST_URI'];
             $pathArr = explode('?', $path);//将ctrl/action和param分开
