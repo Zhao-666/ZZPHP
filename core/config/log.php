@@ -9,6 +9,6 @@
 return array(
     'DRIVER' => 'File',
     'OPTION' => array(
-        'PATH' => IMOOC . '/log/'
+        'PATH' => ROOT_PATH . '/log/'
     )
 );

@@ -35,7 +35,7 @@ class Base
         if (isset(self::$classList[$class])) {
             return true;
         } else {
-            $file = ROOT . DS . $class . '.php';
+            $file = ROOT_PATH . DS . $class . '.php';
             if (is_file($file)) {
                 self::$classList[$class] = true;
                 include $file;

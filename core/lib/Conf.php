@@ -23,7 +23,7 @@ class Conf
         if (isset(self::$conf[$file])) {
             return self::$conf[$file][$name];
         } else {
-            $path = IMOOC . '/core/config/' . $file . '.php';
+            $path = ROOT_PATH . '/core/config/' . $file . '.php';
             if (is_file($path)) {
                 $conf = include $path;
                 if (isset($conf[$name])) {
@@ -43,7 +43,7 @@ class Conf
         if (isset(self::$conf[$file])) {
             return self::$conf[$file];
         } else {
-            $path = IMOOC . '/core/config/' . $file . '.php';
+            $path = ROOT_PATH . '/core/config/' . $file . '.php';
             if (is_file($path)) {
                 $conf = include $path;
                 self::$conf[$file] = $conf;
