@@ -11,9 +11,9 @@ namespace core;
 //框架引导文件
 
 //定义常量
-define('ROOT', realpath('./'));
-define('APP', ROOT . '/app');
-define('CORE', ROOT . '/core');
+define('ROOT_PATH', realpath('./'));
+define('APP', ROOT_PATH . '/app');
+define('CORE', ROOT_PATH . '/core');
 define('DS', DIRECTORY_SEPARATOR);
 define('DEBUG', true);
 if (DEBUG) {
