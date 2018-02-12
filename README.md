@@ -18,7 +18,7 @@ PHP写的web框架~
 使用[`catfan/medoo`](https://github.com/catfan/Medoo)插件作为数据库框架，提升开发效率
 
 # 更新记录
-## v1.1
+### v1.1
 * 重构入口文件index.php、start.php
 * 仿造TP5的入口文件写法
 * 重构Route类，支持使用"?"附带GET请求参数
