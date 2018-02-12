@@ -19,7 +19,7 @@ class Base
         $route = new Route();
         $ctrl = $route->ctrl;
         $action = $route->action;
-        $ctrlFile = APP . DS . 'controller' . DS . $ctrl . '.php';
+        $ctrlFile = APP . DS . 'controller' . DS . $ctrl . EXT;
         $controller = '\\app\\controller\\' . $ctrl;
         if (is_file($ctrlFile)) {
             $con = new $controller();
@@ -35,7 +35,7 @@ class Base
         if (isset(self::$classList[$class])) {
             return true;
         } else {
-            $file = ROOT_PATH . DS . $class . '.php';
+            $file = ROOT_PATH . DS . $class . EXT;
             if (is_file($file)) {
                 self::$classList[$class] = true;
                 include $file;
