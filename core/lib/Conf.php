@@ -1,9 +1,9 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Next
- * Date: 2018/2/1
- * Time: 21:36
+ * User: ZJH
+ * Date: 2018/2/12
+ * Time: 11:39
  */
 
 namespace core\lib;
@@ -13,43 +13,51 @@ class Conf
 {
     public static $conf = [];
 
-    public static function get($name, $file)
+    /**
+     * 用于获取某个文件中的一个配置项
+     * @param $file string 配置文件名
+     * @param $name string 需要的配置项名称
+     * @return mixed 获取到的值
+     * @throws \Exception
+     */
+    public static function get($file, $name)
     {
-        /**
-         * 1、判断配置文件是否存在
-         * 2、判断配置是否存在
-         * 3、缓存配置
-         */
         if (isset(self::$conf[$file])) {
             return self::$conf[$file][$name];
         } else {
-            $path = ROOT_PATH . '/core/config/' . $file . '.php';
-            if (is_file($path)) {
-                $conf = include $path;
-                if (isset($conf[$name])) {
-                    self::$conf[$file] = $conf;
-                    return $conf[$name];
+            $file_path = CORE . DS . 'config' . DS . $file . '.php';
+            if (is_file($file_path)) {
+                $config = include $file_path;
+                if (isset($config[$name])) {
+                    self::$conf[$file] = $config;
+                    return $config[$name];
                 } else {
-                    throw new \Exception('没有这个配置项' . $name);
+                    throw new \Exception('找不到该配置项：' . $name);
                 }
             } else {
-                throw new \Exception('找不到配置文件' . $file);
+                throw new \Exception('找不到该配置文件：' . $file . '.php');
             }
         }
     }
 
+    /**
+     * 用于获取某个文件中的全部配置项
+     * @param $file string 配置文件名
+     * @return mixed 获取到的值
+     * @throws \Exception
+     */
     public static function all($file)
     {
         if (isset(self::$conf[$file])) {
             return self::$conf[$file];
         } else {
-            $path = ROOT_PATH . '/core/config/' . $file . '.php';
-            if (is_file($path)) {
-                $conf = include $path;
-                self::$conf[$file] = $conf;
-                return $conf;
+            $file_path = CORE . DS . 'config' . DS . $file . '.php';
+            if (is_file($file_path)) {
+                $config = include $file_path;
+                self::$conf[$file] = $config;
+                return $config;
             } else {
-                throw new \Exception('找不到配置文件' . $file);
+                throw new \Exception('找不到该配置文件：' . $file . '.php');
             }
         }
     }

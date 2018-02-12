@@ -12,9 +12,9 @@ namespace core;
 
 //定义常量
 define('ROOT_PATH', realpath('./'));
-define('APP', ROOT_PATH . '/app');
-define('CORE', ROOT_PATH . '/core');
 define('DS', DIRECTORY_SEPARATOR);
+define('APP', ROOT_PATH . DS . 'app');
+define('CORE', ROOT_PATH . DS . 'core');
 define('DEBUG', true);
 if (DEBUG) {
     ini_set('display_errors', 'on');
