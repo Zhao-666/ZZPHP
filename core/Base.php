@@ -19,13 +19,21 @@ class Base
         $route = new Route();
         $ctrl = $route->ctrl;
         $action = $route->action;
-        $ctrlFile = APP . DS . 'controller' . DS . $ctrl . '.php';
+        $ctrlFile = APP . DS . 'controller' . DS . $ctrl . EXT;
         $controller = '\\app\\controller\\' . $ctrl;
         if (is_file($ctrlFile)) {
             $con = new $controller();
             $con->$action();
-        } else {
+        } elseif (DEBUG) {
             throw new \Exception('找不到控制器: ' . $ctrlFile);
+        } elseif (config('route.EMPTY_CONTROLLER') !== '') {
+            $ctrl = config('route.EMPTY_CONTROLLER');
+            $ctrlFile = APP . DS . 'controller' . DS . $ctrl . EXT;
+            $controller = '\\app\\controller\\' . $ctrl;
+            if (is_file($ctrlFile)) {
+                $con = new $controller();
+                $con->$action();
+            }
         }
     }
 
@@ -35,7 +43,7 @@ class Base
         if (isset(self::$classList[$class])) {
             return true;
         } else {
-            $file = ROOT_PATH . DS . $class . '.php';
+            $file = ROOT_PATH . DS . $class . EXT;
             if (is_file($file)) {
                 self::$classList[$class] = true;
                 include $file;

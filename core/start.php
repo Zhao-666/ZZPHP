@@ -15,7 +15,8 @@ define('ROOT_PATH', realpath('./'));
 define('DS', DIRECTORY_SEPARATOR);
 define('APP', ROOT_PATH . DS . 'app');
 define('CORE', ROOT_PATH . DS . 'core');
-define('DEBUG', true);
+define('EXT', '.php');
+define('DEBUG', false);
 if (DEBUG) {
     ini_set('display_errors', 'on');
 } else {

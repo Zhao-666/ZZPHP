@@ -25,7 +25,7 @@ class Conf
         if (isset(self::$conf[$file])) {
             return self::$conf[$file][$name];
         } else {
-            $file_path = CORE . DS . 'config' . DS . $file . '.php';
+            $file_path = CORE . DS . 'config' . DS . $file . EXT;
             if (is_file($file_path)) {
                 $config = include $file_path;
                 if (isset($config[$name])) {
@@ -35,7 +35,7 @@ class Conf
                     throw new \Exception('找不到该配置项：' . $name);
                 }
             } else {
-                throw new \Exception('找不到该配置文件：' . $file . '.php');
+                throw new \Exception('找不到该配置文件：' . $file . EXT);
             }
         }
     }
@@ -51,13 +51,13 @@ class Conf
         if (isset(self::$conf[$file])) {
             return self::$conf[$file];
         } else {
-            $file_path = CORE . DS . 'config' . DS . $file . '.php';
+            $file_path = CORE . DS . 'config' . DS . $file . EXT;
             if (is_file($file_path)) {
                 $config = include $file_path;
                 self::$conf[$file] = $config;
                 return $config;
             } else {
-                throw new \Exception('找不到该配置文件：' . $file . '.php');
+                throw new \Exception('找不到该配置文件：' . $file . EXT);
             }
         }
     }

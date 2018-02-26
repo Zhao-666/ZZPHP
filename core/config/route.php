@@ -8,5 +8,6 @@
 
 return [
     'CONTROLLER' => 'Index',
-    'ACTION' => 'index'
+    'ACTION' => 'index',
+    'EMPTY_CONTROLLER' => 'EmptyCon'
 ];
