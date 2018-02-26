@@ -6,6 +6,7 @@
  * Time: 11:42
  */
 
+//框架默认路由配置文件
 return [
     'CONTROLLER' => 'Index',
     'ACTION' => 'index',
