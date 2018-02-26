@@ -24,8 +24,16 @@ class Base
         if (is_file($ctrlFile)) {
             $con = new $controller();
             $con->$action();
-        } else {
+        } elseif (DEBUG) {
             throw new \Exception('找不到控制器: ' . $ctrlFile);
+        } elseif (config('route.EMPTY_CONTROLLER') !== '') {
+            $ctrl = config('route.EMPTY_CONTROLLER');
+            $ctrlFile = APP . DS . 'controller' . DS . $ctrl . EXT;
+            $controller = '\\app\\controller\\' . $ctrl;
+            if (is_file($ctrlFile)) {
+                $con = new $controller();
+                $con->$action();
+            }
         }
     }
 
