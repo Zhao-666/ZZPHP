@@ -1,14 +1,15 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Next
- * Date: 2018/2/1
- * Time: 22:21
+ * User: ZJH
+ * Date: 2018/2/26
+ * Time: 15:57
  */
 
-return array(
+//框架默认日志配置文件
+return [
     'DRIVER' => 'File',
-    'OPTION' => array(
+    'OPTION' => [
         'PATH' => ROOT_PATH . '/log/'
-    )
-);
+    ]
+];

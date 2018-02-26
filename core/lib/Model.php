@@ -1,13 +1,12 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Next
- * Date: 2018/1/31
- * Time: 22:53
+ * User: ZJH
+ * Date: 2018/2/26
+ * Time: 15:38
  */
 
 namespace core\lib;
-
 
 
 use Medoo\Medoo;

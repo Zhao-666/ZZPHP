@@ -8,6 +8,7 @@
 
 namespace core;
 
+use core\lib\Log;
 use core\lib\Route;
 
 class Base
@@ -16,6 +17,8 @@ class Base
 
     public static function run()
     {
+        Log::init();
+        Log::log($_SERVER);
         $route = new Route();
         $ctrl = $route->ctrl;
         $action = $route->action;

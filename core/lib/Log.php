@@ -1,9 +1,9 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Next
- * Date: 2018/2/1
- * Time: 22:16
+ * User: ZJH
+ * Date: 2018/2/26
+ * Time: 15:58
  */
 
 namespace core\lib;
@@ -11,23 +11,17 @@ namespace core\lib;
 
 class Log
 {
-    public static $class;
-
-    /**
-     * 1、确定日志的存储方式
-     *
-     * 2、写日志
-     */
+    private static $class;
 
     public static function init()
     {
-        $driver = Conf::get('DRIVER', 'log');
+        $driver = config('log.DRIVER');
         $class = '\core\lib\driver\log\\' . $driver;
         self::$class = new $class;
     }
 
-    public static function log($name, $file = 'log')
+    public static function log($msg)
     {
-        self::$class->log($name, $file);
+        self::$class->log($msg);
     }
 }

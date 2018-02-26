@@ -1,16 +1,17 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Next
- * Date: 2018/2/1
- * Time: 21:52
+ * User: ZJH
+ * Date: 2018/2/26
+ * Time: 15:39
  */
 
-return array(
+//框架默认数据库配置文件
+return [
     'database_type' => 'mysql',
     'database_name' => 'test',
     'server' => 'localhost',
     'username' => 'root',
-    'password' => '123456',
+    'password' => '',
     'charset' => 'utf8'
-);
+];
