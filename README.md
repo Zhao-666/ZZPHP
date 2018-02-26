@@ -15,7 +15,9 @@ PHP写的web框架~
 
 使用[`symfony/var-dumper`](https://github.com/symfony/var-dumper)插件提升变量输出的效果
 
-使用[`catfan/medoo`](https://github.com/catfan/Medoo)插件作为数据库框架，提升开发效率
+使用[`catfan/medoo`](https://github.com/catfan/Medoo)插件作为数据库框架
+
+使用[`twigphp/Twig`](https://github.com/twigphp/Twig)插件作为模版引擎
 
 # 更新记录
 ### v1.1
