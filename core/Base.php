@@ -32,7 +32,11 @@ class Base
             $controller = '\\app\\controller\\' . $ctrl;
             if (is_file($ctrlFile)) {
                 $con = new $controller();
-                $con->$action();
+                if (method_exists($con, $action)) {
+                    $con->$action();
+                } elseif (method_exists($con, '_empty')) {
+                    $con->_empty($action);
+                }
             }
         }
     }
