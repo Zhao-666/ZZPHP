@@ -18,7 +18,7 @@ class Base
     public static function run()
     {
         Log::init();
-        Log::log($_SERVER);
+        Log::info($_SERVER);
         $route = new Route();
         $ctrl = $route->ctrl;
         $action = $route->action;

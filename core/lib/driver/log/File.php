@@ -18,18 +18,14 @@ class File
         $this->path = $option['PATH'];
     }
 
-    public function log($msg)
+    public function log($msg, $type)
     {
-       /**
-         * 1、确定文件存储位置是否存在
-         *     新建目录
-         * 2、写入日志
-         */
+        $msg = '[' . $type . '] ' . json_encode($msg);
         $time = date('YmdH');
         if (!is_dir($this->path . $time)) {
             mkdir($this->path . $time, '0777', true);
         }
         file_put_contents($this->path . $time . DS . 'log.php',
-            date('Y-m-d H:i:s') . json_encode($msg) . PHP_EOL, FILE_APPEND);
+            date('Y-m-d H:i:s') . $msg . PHP_EOL, FILE_APPEND);
     }
 }
