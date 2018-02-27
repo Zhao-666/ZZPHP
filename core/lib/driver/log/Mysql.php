@@ -36,11 +36,12 @@ class Mysql
         return self::$database;
     }
 
-    public function log($msg)
+    public function log($msg, $type)
     {
+        $msg = '[' . $type . '] ' . json_encode($msg);
         self::getDb()->insert(self::$table,
             [
-                self::$msgField . '[JSON]' => $msg,
+                self::$msgField => $msg,
                 self::$logtimeField => date('Y-m-d H:i:s')
             ]);
         $ret = self::getDb()->id();

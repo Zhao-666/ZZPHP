@@ -36,3 +36,5 @@ PHP写的web框架~
 ### v1.4
 * 增加Mysql日志驱动，通过在log.php文件中配置日志记录类型为mysql即可将日志数据保存在数据库中
 * 优化日志记录Log类
+### v1.4.1
+* Log类新增info、debug、sql等静态方法，优化Log类
