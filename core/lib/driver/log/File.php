@@ -20,6 +20,11 @@ class File
 
     public function log($msg)
     {
+       /**
+         * 1、确定文件存储位置是否存在
+         *     新建目录
+         * 2、写入日志
+         */
         $time = date('YmdH');
         if (!is_dir($this->path . $time)) {
             mkdir($this->path . $time, '0777', true);
