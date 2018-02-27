@@ -8,8 +8,15 @@
 
 //框架默认日志配置文件
 return [
-    'DRIVER' => 'File',
+//    'DRIVER' => 'File',
+//    'OPTION' => [
+//        'PATH' => ROOT_PATH . '/log/'
+//    ]
+
+    'DRIVER' => 'Mysql',
     'OPTION' => [
-        'PATH' => ROOT_PATH . '/log/'
+        'TABLE' => 'log',
+        'MSG_FIELD' => 'message',
+        'LOGTIME_FIELD' => 'log_time'
     ]
 ];
