@@ -23,7 +23,11 @@ class Conf
     public static function get($file, $name)
     {
         if (isset(self::$conf[$file])) {
-            return self::$conf[$file][$name];
+            if (isset(self::$conf[$file][$name])) {
+                return self::$conf[$file][$name];
+            } else {
+                throw new \Exception('找不到该配置项：' . $name);
+            }
         } else {
             $file_path = CORE . DS . 'common' . DS . $file . EXT;
             if (is_file($file_path)) {
