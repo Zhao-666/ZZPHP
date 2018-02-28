@@ -47,6 +47,8 @@ class Base
                     $con->_empty($action);
                 }
             }
+        } else{
+            http_response_code(404);
         }
     }
 
