@@ -38,3 +38,7 @@ PHP写的web框架~
 * 优化日志记录Log类
 ### v1.4.1
 * Log类新增info、debug、sql等静态方法，优化Log类
+### v1.4.2
+* 重构配置文件，将框架大部分配置都放在config.php文件夹中
+* 新版本日志将保存在 项目根目录/runtime/log文件夹中
+* 修复了config助手函数的Bug

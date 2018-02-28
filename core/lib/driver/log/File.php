@@ -14,8 +14,7 @@ class File
 
     public function __construct()
     {
-        $option = config('log.OPTION');
-        $this->path = $option['PATH'];
+        $this->path = config('log')['path'];
     }
 
     public function log($msg, $type)

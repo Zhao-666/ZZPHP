@@ -22,16 +22,22 @@ class Base
         $route = new Route();
         $ctrl = $route->ctrl;
         $action = $route->action;
-        $ctrlFile = APP . DS . 'controller' . DS . $ctrl . EXT;
+        $ctrlFile = APP_PATH . 'controller' . DS . $ctrl . EXT;
         $controller = '\\app\\controller\\' . $ctrl;
         if (is_file($ctrlFile)) {
             $con = new $controller();
-            $con->$action();
-        } elseif (DEBUG) {
+            if (method_exists($con, $action)) {
+                $con->$action();
+            } elseif (config('app_debug')) {
+                throw new \Exception('找不到该操作: ' . $controller . '::' . $action);
+            } else {
+                http_response_code(404);
+            }
+        } elseif (config('app_debug')) {
             throw new \Exception('找不到控制器: ' . $ctrlFile);
-        } elseif (config('route.EMPTY_CONTROLLER') !== '') {
-            $ctrl = config('route.EMPTY_CONTROLLER');
-            $ctrlFile = APP . DS . 'controller' . DS . $ctrl . EXT;
+        } elseif (config('empty_controller') !== '') {
+            $ctrl = config('empty_controller');
+            $ctrlFile = APP_PATH . 'controller' . DS . $ctrl . EXT;
             $controller = '\\app\\controller\\' . $ctrl;
             if (is_file($ctrlFile)) {
                 $con = new $controller();

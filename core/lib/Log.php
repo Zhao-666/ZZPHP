@@ -39,7 +39,7 @@ class Log
 
     public static function init()
     {
-        $driver = config('log.DRIVER');
+        $driver = config('log')['driver'];
         $class = '\core\lib\driver\log\\' . $driver;
         self::$class = new $class;
     }

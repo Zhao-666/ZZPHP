@@ -26,8 +26,8 @@ class Route
             $this->setRoute($pathArr[0]);
             isset($pathArr[1]) && $this->setParam($pathArr[1]);
         } else {
-            $this->ctrl = config('route.CONTROLLER');
-            $this->action = config('route.ACTION');
+            $this->ctrl = config('default_controller');
+            $this->action = config('default_action');
         }
     }
 
@@ -37,12 +37,12 @@ class Route
         if (!empty($routeArr[0])) {
             $this->ctrl = $routeArr[0];
         } else {
-            $this->ctrl = config('route.CONTROLLER');
+            $this->ctrl = config('default_controller');
         }
         if (!empty($routeArr[1])) {
             $this->action = $routeArr[1];
         } else {
-            $this->action = config('route.ACTION');
+            $this->action = config('default_action');
         }
     }
 

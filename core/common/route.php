@@ -8,7 +8,5 @@
 
 //框架默认路由配置文件
 return [
-    'CONTROLLER' => 'Index',
-    'ACTION' => 'index',
-    'EMPTY_CONTROLLER' => 'EmptyCon'
+
 ];

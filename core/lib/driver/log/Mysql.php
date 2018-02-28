@@ -28,10 +28,10 @@ class Mysql
             self::$database = new Medoo($database);
 
             //初始化数据表信息
-            $option = config('log.OPTION');
-            self::$table = $option['TABLE'];
-            self::$msgField = $option['MSG_FIELD'];
-            self::$logtimeField = $option['LOGTIME_FIELD'];
+            $option = config('log')['option'];
+            self::$table = $option['table'];
+            self::$msgField = $option['msg_field'];
+            self::$logtimeField = $option['logtime_field'];
         }
         return self::$database;
     }

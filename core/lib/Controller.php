@@ -21,10 +21,10 @@ class Controller
 
     public function display($file)
     {
-        $filePath = APP . '/views/' . $file . '.html';
+        $filePath = APP_PATH . 'views/' . $file . '.html';
         if (is_file($filePath)) {
-            $loader = new \Twig_Loader_Filesystem(APP . '/views');
-            if (DEBUG) {
+            $loader = new \Twig_Loader_Filesystem(APP_PATH . 'views');
+            if (config('app_debug')) {
                 $twig = new \Twig_Environment($loader);
             } else {
                 //开启缓存
@@ -32,7 +32,7 @@ class Controller
             }
             $template = $twig->load($file . '.html');
             echo $template->render($this->assign);
-        } elseif (DEBUG) {
+        } elseif (config('app_debug')) {
             throw new \Exception('找不到对应的视图文件');
         }
     }

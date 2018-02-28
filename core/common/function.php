@@ -28,7 +28,8 @@ if (!function_exists('config')) {
 
     /**
      * 用于获取某个配置文件中的配置值
-     * @param $value string/array 需要获取的配置项的名字 route.CONTROLLER ['route','CONTROLLER']
+     * 默认获取config文件中的配置值
+     * @param $value string/array 需要获取的配置项的名字 route.controller ['route','controller']
      * @return mixed|null
      */
     function config($value)
@@ -42,7 +43,7 @@ if (!function_exists('config')) {
             $name = trim($value[1]);
         } elseif (is_string($value)) {
             $param = explode('.', $value);
-            if (count($param) > 0) {
+            if (count($param) > 1) {
                 $file = trim($param[0]);
                 $name = trim($param[1]);
             } else {
