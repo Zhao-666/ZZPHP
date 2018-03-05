@@ -8,5 +8,5 @@
 
 //框架默认路由配置文件
 return [
-
+    'test'=>'index/index'
 ];

@@ -17,7 +17,7 @@ return [
     //用户名
     'username' => 'root',
     //密码
-    'password' => '',
+    'password' => '123456',
     //字符集
     'charset' => 'utf8'
 ];

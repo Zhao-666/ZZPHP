@@ -23,7 +23,7 @@ class Index extends Controller
         dump($data);
 
         //视图演示
-        $this->assign('data','test');
+        $this->assign('data', 'test');
         $this->display('index');
     }
 }

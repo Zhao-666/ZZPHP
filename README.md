@@ -37,3 +37,5 @@ PHP写的web框架~
 * 重构配置文件，将框架大部分配置都放在config.php文件夹中
 * 新版本日志将保存在 项目根目录/runtime/log文件夹中
 * 修复了config助手函数的Bug
+### v1.4.3
+* 支持在route.php文件中配置匹配路由，

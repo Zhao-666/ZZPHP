@@ -10,8 +10,10 @@ namespace core\lib;
 
 class Route
 {
-    public $ctrl;
-    public $action;
+    public $ctrl;//请求的controller
+    public $action;//请求的action
+
+    private static $route;//用于保存route.php文件中配置的路由规则
 
     public function __construct()
     {
@@ -20,6 +22,10 @@ class Route
          * 2、获取URL参数部分
          * 3、返回对应控制器和方法
          */
+        if (!isset(self::$route)) {
+            //读取route.php文件，初始化匹配路由规则
+            self::$route = include CORE . DS . 'common' . DS . 'route' . EXT;
+        }
         if (isset($_SERVER['REQUEST_URI']) && $_SERVER['REQUEST_URI'] !== '/') {
             $path = $_SERVER['REQUEST_URI'];
             $pathArr = explode('?', $path);//将ctrl/action和param分开
@@ -34,6 +40,10 @@ class Route
     private function setRoute($route)
     {
         $routeArr = explode('/', trim($route, '/'));
+        if (array_key_exists($routeArr[0], self::$route)) {
+            $path = self::$route[$routeArr[0]];
+            $routeArr = explode('/', trim($path, '/'));
+        }
         if (!empty($routeArr[0])) {
             $this->ctrl = $routeArr[0];
         } else {
