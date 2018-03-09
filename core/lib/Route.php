@@ -19,13 +19,13 @@ class Route
     //用于保存route.php文件中配置的路由规则
     private static $rules;
 
+    /**
+     * 1、隐藏index.php
+     * 2、获取URL参数部分
+     * 3、返回对应控制器和方法
+     */
     public function __construct()
     {
-        /**
-         * 1、隐藏index.php
-         * 2、获取URL参数部分
-         * 3、返回对应控制器和方法
-         */
         if (!isset(self::$rules)) {
             self::setRules();
         }
@@ -40,7 +40,9 @@ class Route
         }
     }
 
-    //读取route.php文件，初始化匹配路由规则
+    /**
+     * 读取route.php文件，初始化匹配路由规则
+     */
     private static function setRules()
     {
         $rules = include CORE . DS . 'common' . DS . 'route' . EXT;
@@ -54,6 +56,9 @@ class Route
         }
     }
 
+    /**
+     * @param $route string url中的路由字符串
+     */
     private function setRoute($route)
     {
         $routeArr = explode('/', trim($route, '/'));
@@ -74,6 +79,9 @@ class Route
         }
     }
 
+    /**
+     * @param $param string url中的get变量
+     */
     private function setParam($param)
     {
         $paramArr = explode('&', $param);
