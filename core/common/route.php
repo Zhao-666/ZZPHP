@@ -8,5 +8,7 @@
 
 //框架默认路由配置文件
 return [
-    'test'=>'index/index'
+    'test'=>'index/index',
+    'get.testGet'=>'index/testGet',
+    'post.testPost'=>'index/testPost'
 ];

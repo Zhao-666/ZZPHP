@@ -26,4 +26,10 @@ class Index extends Controller
         $this->assign('data', 'test');
         $this->display('index');
     }
+    public function testGet(){
+        p('I am testGet');
+    }
+    public function testPost(){
+        p('I am testPost');
+    }
 }
